@@ -7,8 +7,8 @@
     wget
     neovim
     openssh
-    sonarr
     radarr
+    sonarr
     prowlarr
     jellyfin
     transmission

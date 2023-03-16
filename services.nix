@@ -56,6 +56,8 @@
   };
 
   systemd.services.yarr = {
+    enable = true;
+    wantedBy = ["default.target"];
     serviceConfig = {
       User="desi";
       Group="users";  
