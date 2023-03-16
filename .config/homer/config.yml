@@ -1,0 +1,70 @@
+title: "App dashboard"
+subtitle: "Homer"
+logo: "assets/logo.png"
+header: false
+footer: ''
+columns: "auto"
+connectivityCheck: true
+defaults:
+  layout: columns
+  colorTheme: auto
+theme: default
+services:
+  - name: "Media"
+    icon: "fas fa-cloud"
+    items:
+      - name: "Jellyfin"
+        subtitle: "Media Streaming Server"
+        tag: "media"
+        url: "http://192.168.123.201:8096"
+        target: "_blank"
+      - name: "Ombi"
+        subtitle: "Media Request Tool"
+        tag: "media"
+        url: "http://192.168.123.201:3579"
+        target: "_blank"
+      - name: "yarr"
+        subtitle: "RSS Reader"
+        tag: "media"
+        url: "http://192.168.123.201:7070"
+        target: "_blank"
+  - name: "Downloads"
+    icon: "fas fa-cloud-download-alt"
+    items:
+      - name: "Sonarr"
+        subtitle: "TV Show Indexer"
+        tag: "downloads"
+        url: "http://192.168.123.201:8989"
+        target: "_blank"
+      - name: "Radarr"
+        subtitle: "Movie Indexer"
+        tag: "downloads"
+        url: "http://192.168.123.201:7878"
+        target: "_blank"
+      - name: "Transmission"
+        subtitle: "Torrent Client"
+        tag: "downloads"
+        url: "http://192.168.123.201:9091/transmission/web/"
+        target: "_blank"
+  - name: "Utilities"
+    icon: "fas fa-tools"
+    items:
+      - name: "Duplicati"
+        subtitle: "Backup Client"
+        tag: "utilities"
+        url: "http://192.168.123.201:8200"
+        target: "_blank"
+      - name: "Gogs"
+        subtitle: "Git Hosting"
+        tag: "utilities"
+        url: "http://192.168.123.201:3000"
+        target: "_blank"
+  - name: "Other"
+    icon: "fas fa-cog"
+    items:
+      - name: "FlareSolverr"
+        subtitle: "Captcha Solver"
+        tag: "utilities"
+        url: "http://192.168.123.201:8191"
+        target: "_blank"
+

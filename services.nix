@@ -1,0 +1,68 @@
+# services.nix
+
+{ config, pkgs, ... }:
+
+{
+  # Enable and configure sonarr as a service
+  services.sonarr = {
+    enable = true;
+    openFirewall = true;
+  };
+
+  # Enable and configure radarr as a service
+  services.radarr = {
+    enable = true;
+    openFirewall = true;
+  };
+
+  # Enable and configure jellyfin as a service
+  services.jellyfin = {
+    enable = true;
+    openFirewall = true;
+  };
+
+  # Enable and configure prowlarr as a service
+  services.prowlarr = {
+    enable = true;
+    openFirewall = true;
+  };
+
+  # Enable and configure transmission as a service
+  services.transmission = {
+    enable = true;
+    openRPCPort = true;
+    openFirewall = true;
+    settings = {
+      rpc-bind-address="0.0.0.0";
+      rpc-whitelist-enabled = false;
+    };
+  };
+
+  # Enable and configure duplicati as a service
+  services.duplicati = {
+    enable = true;
+    interface = "any";
+  };
+
+  # Enable and configure ombi as a service
+  services.ombi = {
+    enable = true;
+    openFirewall = true;
+  };
+
+  # Enable and configure gogs as a service
+  services.gogs = {
+    enable = true;
+  };
+
+  systemd.services.yarr = {
+    serviceConfig = {
+      User="desi";
+      Group="users";  
+      ExecStart = "/nix/store/ass1msjis14nnz14rb3qjghdhgssiqy6-system-path/bin/yarr -addr 0.0.0.0:7070";
+    };
+  };
+
+}
+
+
