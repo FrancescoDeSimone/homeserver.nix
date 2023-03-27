@@ -3,22 +3,30 @@
 { config, pkgs, ... }:
 
 {
+
+  networking.firewall.enable = false;
+  services.logind.lidSwitch = "ignore";
+  services.openssh.enable = true;
+
   # Enable and configure sonarr as a service
   services.sonarr = {
     enable = true;
     openFirewall = true;
+    user = "desi";
   };
 
   # Enable and configure radarr as a service
   services.radarr = {
     enable = true;
     openFirewall = true;
+    user = "desi";
   };
 
   # Enable and configure jellyfin as a service
   services.jellyfin = {
     enable = true;
     openFirewall = true;
+    user = "desi";
   };
 
   # Enable and configure prowlarr as a service
@@ -32,9 +40,14 @@
     enable = true;
     openRPCPort = true;
     openFirewall = true;
+    user = "desi";
     settings = {
       rpc-bind-address="0.0.0.0";
       rpc-whitelist-enabled = false;
+      home = "/data/transmission";
+      download-dir = "/data/transmission/Downloads";
+      incomplete-dir = "/data/transmission/.incomplete";
+      watch-dir = "/data/transmission/watchdir";
     };
   };
 
@@ -55,13 +68,20 @@
     enable = true;
   };
 
+  services.cron = {
+    enable = true;
+    systemCronJobs = [
+      "*/5 * * * *      root    ~/duckdns/duck.sh >/dev/null 2>&1"
+    ];
+  };
+
   systemd.services.yarr = {
     enable = true;
     wantedBy = ["default.target"];
     serviceConfig = {
       User="desi";
       Group="users";  
-      ExecStart = "/nix/store/ass1msjis14nnz14rb3qjghdhgssiqy6-system-path/bin/yarr -addr 0.0.0.0:7070";
+      ExecStart = "/nix/store/z3pnhpp5nxf8188gkvqksnisjwvpvzr6-system-path/bin/yarr -addr 0.0.0.0:7070";
     };
   };
 

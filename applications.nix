@@ -16,9 +16,10 @@
     duplicati
     ombi
     docker
-    lxd
     gogs
     yarr
+    tmux
+    openvswitch
   ];
 }
 

@@ -13,6 +13,10 @@
         ports = ["80:8080"];
         volumes = [ "/home/desi/.config/homer/config.yml/:/www/assets/config.yml"];
       };
+      nginxproxymanager= {
+        image = "jc21/nginx-proxy-manager:latest";
+        ports = [ "81:81" "443:443"];
+      };
     };
   };
 }

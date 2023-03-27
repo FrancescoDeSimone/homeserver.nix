@@ -7,13 +7,15 @@
       ./applications.nix
       ./services.nix
       ./docker.nix
+      ./filesystem.nix
+      ./lxd.nix
     ];
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/vda";
-  boot.loader.grub.useOSProber = true;
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.efi.efiSysMountPoint = "/boot/efi";
   networking.hostName = "homeserver";
-networking.firewall.enable = false;
   networking.networkmanager.enable = true;
+
   time.timeZone = "Europe/Rome";
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.extraLocaleSettings = {
@@ -27,23 +29,13 @@ networking.firewall.enable = false;
     LC_TELEPHONE = "it_IT.UTF-8";
     LC_TIME = "it_IT.UTF-8";
   };
-  services.xserver = {
-    layout = "us";
-    xkbVariant = "";
-  };
-  virtualisation.lxd.enable = true;
   users.users.desi = {
     isNormalUser = true;
     description = "desi";
-    extraGroups = [ "networkmanager" "wheel" "docker" "lxd"];
+    extraGroups = [ "networkmanager" "wheel" "lxd" "docker" ];
     packages = with pkgs; [];
   };
   services.getty.autologinUser = "desi";
   nixpkgs.config.allowUnfree = true;
-  services.openssh.enable = true;
-  system.stateVersion = "22.11";
-  nix.extraOptions = ''
-    experimental-features = nix-command
-  '';
+  system.stateVersion = "22.11"; # Did you read the comment?
 }
-
