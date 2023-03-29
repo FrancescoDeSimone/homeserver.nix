@@ -17,7 +17,13 @@
         image = "jc21/nginx-proxy-manager:latest";
         ports = [ "81:81" "443:443"];
       };
+      speedtesttracker = {
+        image = "henrywhitaker3/speedtest-tracker";
+        ports = [ "8765:80" ];
+	environment = {
+	  OOKLA_EULA_GDPR = "true";
+	};
+      };
     };
   };
 }
-

@@ -9,6 +9,7 @@
       ./docker.nix
       ./filesystem.nix
       ./lxd.nix
+      ./transcoding.nix
     ];
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;

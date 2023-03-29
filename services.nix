@@ -68,6 +68,10 @@
     enable = true;
   };
 
+  services.squid = {
+    enable = true;
+  };
+
   services.cron = {
     enable = true;
     systemCronJobs = [

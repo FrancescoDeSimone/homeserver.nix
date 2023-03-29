@@ -11,6 +11,7 @@
     sonarr
     prowlarr
     jellyfin
+    jellyfin-ffmpeg
     transmission
     htop
     duplicati
@@ -19,7 +20,6 @@
     gogs
     yarr
     tmux
-    openvswitch
   ];
 }
 
