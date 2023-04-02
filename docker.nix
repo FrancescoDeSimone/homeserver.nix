@@ -16,6 +16,7 @@
       nginxproxymanager= {
         image = "jc21/nginx-proxy-manager:latest";
         ports = [ "81:81" "443:443"];
+	volumes = [ "/home/desi/.config/npm/data:/data" "/home/desi/.config/npm/letsencrypt:/etc/letsencrypt" ];
       };
       speedtesttracker = {
         image = "henrywhitaker3/speedtest-tracker";

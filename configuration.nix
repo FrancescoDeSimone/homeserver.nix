@@ -10,6 +10,7 @@
       ./filesystem.nix
       ./lxd.nix
       ./transcoding.nix
+      ./schedule.nix
     ];
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
