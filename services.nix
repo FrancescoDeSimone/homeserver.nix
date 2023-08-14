@@ -36,6 +36,16 @@
     openFirewall = true;
   };
 
+  disabledModules = [ "services/misc/gogs.nix" ];
+  imports =
+    [ # Use gogs service from nixos-unstable channel.
+    <nixos-unstable-small/nixos/modules/services/misc/gogs.nix>
+    ];
+
+  services.gogs = {
+    enable = true;
+  };
+
 # Enable and configure transmission as a service
   services.transmission = {
     enable = true;
