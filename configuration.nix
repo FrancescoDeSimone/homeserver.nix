@@ -3,7 +3,7 @@
 {
   imports =
     [
-      ./hardware-configuration.nix
+    ./hardware-configuration.nix
       ./applications.nix
       ./services.nix
       ./docker.nix
@@ -11,6 +11,7 @@
       ./lxd.nix
       ./transcoding.nix
       ./schedule.nix
+      ./nextcloud.nix
     ];
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -39,5 +40,6 @@
   };
   services.getty.autologinUser = "desi";
   nixpkgs.config.allowUnfree = true;
-  system.stateVersion = "22.11"; # Did you read the comment?
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  system.stateVersion = "23.05"; # Did you read the comment?
 }
